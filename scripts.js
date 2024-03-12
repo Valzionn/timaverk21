@@ -1,25 +1,31 @@
-let number = 0
+let number = 0;
 
-const erBoom = document.getElementById('boom')
+const erBoom = document.getElementById('boom');
+const numberTag = document.getElementById('number');
+const limit = document.getElementById('limit');
 
-const numberTag = document.getElementById('number')
+limit.value = localStorage.getItem('limit') || 1;
 
 const onIncrementClick = () => {
-    number = number + 1
-    checkBoom()
-    console.log(number)
-}
+    number += parseInt(limit.value);
+    checkBoom();
+    console.log(number);
+};
 
 const onDecrementClick = () => {
-    number = number - 1
-    checkBoom()
-    console.log(number)
-}
+    number -= parseInt(limit.value);
+    checkBoom();
+    console.log(number);
+};
 
 const checkBoom = () => {
-    if(number >= 35) {
-        erBoom.style.display = 'block'
+    if (number >= 35) {
+        erBoom.style.display = 'block';
     } else {
-        erBoom.style.display = 'none'
+        erBoom.style.display = 'none';
     }
-}
+};
+
+limit.addEventListener('input', () => {
+    localStorage.setItem('limit', limit.value);
+});
