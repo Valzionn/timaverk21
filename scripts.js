@@ -1,10 +1,4 @@
 let number = 0
-let incrementValue = localStorage.getItem('incremenValue') || 5;
-let limitValue = localStorage.getItem('limitValue') || 50;
-
-document.getElementById('increment').value = incrementValue;
-document.getElementById('limit').value = limitValue;
-
 
 const erBoom = document.getElementById('boom')
 
